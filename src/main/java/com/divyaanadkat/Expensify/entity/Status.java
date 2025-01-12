@@ -11,6 +11,7 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Enumerated(value = EnumType.STRING)
     private State state;
 
     private String reviewedBy;

@@ -1,9 +1,6 @@
 package com.divyaanadkat.Expensify.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +18,7 @@ public class ExpensifyUser implements UserDetails {
 
     private String password;
 
+    @Enumerated(value = EnumType.STRING)
     private Role role;
 
     protected ExpensifyUser() {}
