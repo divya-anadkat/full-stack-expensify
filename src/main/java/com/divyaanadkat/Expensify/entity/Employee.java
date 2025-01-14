@@ -8,10 +8,6 @@ import java.util.List;
 @Entity
 @Table(name = "employees")
 public class Employee extends ExpensifyUser {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,

@@ -42,11 +42,11 @@ public class ExpensifyUser implements UserDetails {
     }
 
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public Role getRole() {
-        return role;
+        return this.role;
     }
 
     @Override
