@@ -1,11 +1,14 @@
 package com.divyaanadkat.Expensify.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "expenses")
+@JsonDeserialize(builder = Expense.Builder.class)
 public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -59,6 +62,7 @@ public class Expense {
         return new Builder();
     }
 
+    @JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
         private String merchant;
         private String description;

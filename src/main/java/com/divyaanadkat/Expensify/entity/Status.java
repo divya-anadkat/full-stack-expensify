@@ -43,6 +43,13 @@ public class Status {
         return comment;
     }
 
+    public void changeTo(Status status) {
+        this.state = status.state;
+        this.reviewedBy = status.reviewedBy;
+        this.reviewDate = status.reviewDate;
+        this.comment = status.comment;
+    }
+
     // For Hibernate
     private Status() {}
 
