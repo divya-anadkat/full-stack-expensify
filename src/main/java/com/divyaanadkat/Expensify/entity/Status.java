@@ -23,6 +23,26 @@ public class Status {
         REJECTED
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public String getReviewedBy() {
+        return reviewedBy;
+    }
+
+    public LocalDate getReviewDate() {
+        return reviewDate;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
     // For Hibernate
     private Status() {}
 

@@ -18,6 +18,30 @@ public class Expense {
     @OneToOne(cascade = CascadeType.ALL)
     private Status status;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public String getMerchant() {
+        return merchant;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDate getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
     // For Hibernate
     private Expense() {}
 
