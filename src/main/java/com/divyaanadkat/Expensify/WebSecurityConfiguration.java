@@ -17,7 +17,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -57,9 +56,21 @@ public class WebSecurityConfiguration {
                             );
                         })
                         .failureHandler((req, res, ex) -> {
+                            res.setStatus(HttpStatus.BAD_REQUEST.value());
+                        })
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessHandler((req, res, auth) -> {
+                            res.setStatus(HttpStatus.OK.value());
+                        })
+                )
+                .exceptionHandling(exceptionHandling -> exceptionHandling
+                        .authenticationEntryPoint((req, res, ex) -> {
                             res.setStatus(HttpStatus.UNAUTHORIZED.value());
                         })
-                );
+                )
+        ;
 
         return http.build();
     }
